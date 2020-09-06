@@ -75,10 +75,35 @@
 
 				<!-- Three -->
 					<section id="three">
+					<?php
+     					$name = $_POST['name'];
+     					$email = $_POST['email'];
+     					$subject = $_POST['subject'];
+    			 		$message = $_POST['message'];                                                   
+     					$from = 'From: <the-email-that-you-want-it-to-come-from>';
+     					$to = 'anishya13@gmail.com';
+     					$email_subject = 'New Contact Form Submission!';
+     
+     					$body = "Name: $name\nE-mail: $email\nSubject: $subject\n\nThe message is below:\n$message";;
+					?>
+					<?php
+   						if (isset($_POST['submitbtn']))
+    					{
+        					if (mail($to, $email_subject, $body, $from))
+        					{
+           						echo "<font color=\"green\"><p>Your message has been sent!</p></font>";
+        					}
+        					else
+       						{
+        						echo "<font color=\"red\"><p>Your message sending has failed! Please manually email (your email)!</p></font>";
+        					}
+    					}
+					?>
+
 						<h2>Get In Touch</h2>
 						<div class="row">
 							<div class="col-8 col-12-small">
-								<form method="post" action="mailto:anishya_13@gmail.com" enctype=”multipart/form-data”>
+								<form method="post" action="index.php" enctype=”multipart/form-data”>
 									<div class="row gtr-uniform gtr-50">
 										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
 										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
@@ -102,7 +127,7 @@
 									</li>
 									<li>
 										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-										<a href="#">anishya.h@student.unsw.edu.au</a>
+										<a href="mailto:anishya.h@student.unsw.edu.au">anishya.h@student.unsw.edu.au</a>
 									</li>
 								</ul>
 							</div>
@@ -433,12 +458,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<footer id="footer">
 				<div class="inner">
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://twitter.com/anishya_H" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/anishyaH" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						<li><a href="mailto:anishya_13@gmail.com" class="icon solid fa-envelope"><span class="label">anishya13@gmail.com</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Anishya Harshan</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
